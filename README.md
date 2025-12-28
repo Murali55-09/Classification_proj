@@ -25,30 +25,19 @@ The system allows users to upload a cattle image and instantly receive:
 🧠 Cattle Breeds Classified
 
 The model is trained to classify the following breeds:
-
-    Ayrshire cattle
-
-    Brown Swiss cattle
-    
-    Holstein Friesian cattle
-    
-    Jersey cattle
-    
-    Red Dane cattle
+    1. Ayrshire cattle
+    2. Brown Swiss cattle
+    3. Holstein Friesian cattle
+    4. Jersey cattle
+    5.Red Dane cattle
 
 🛠️ Tech Stack
 Machine Learning & Backend
-
     Python
-
     TensorFlow / Keras
-
     NumPy
-
     Pillow (PIL)
-
     Flask
-
     SciPy
 
 Frontend
