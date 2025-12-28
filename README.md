@@ -66,11 +66,11 @@ Tools
     VS Code
    
     Git & GitHub
+    
 
 
 classification_proj/
-
-
+│
 ├── app.py                          # Flask backend
 ├── cattle_breed_model.keras        # Trained CNN model
 ├── class_indices.json              # Class label mapping
@@ -154,7 +154,7 @@ Web Application Workflow
     3. Install Dependencies
         
         pip install -r requirements.txt
-        
+
 
 🔮 Future Enhancements
     
