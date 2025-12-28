@@ -33,11 +33,17 @@ The model is trained to classify the following breeds:
 
 🛠️ Tech Stack
 Machine Learning & Backend
+    
     Python
+    
     TensorFlow / Keras
+    
     NumPy
+    
     Pillow (PIL)
+    
     Flask
+    
     SciPy
 
 Frontend
