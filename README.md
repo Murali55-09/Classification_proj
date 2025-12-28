@@ -66,26 +66,43 @@ Tools
     VS Code
    
     Git & GitHub
-    
+
 
 
 classification_proj/
 │
+
 ├── app.py                          # Flask backend
+
 ├── cattle_breed_model.keras        # Trained CNN model
+
 ├── class_indices.json              # Class label mapping
+
 ├── requirements.txt
+
 │
 ├── templates/
+
 │   └── index.html                  # Frontend HTML
+
 │
+
 ├── static/
+
 │   ├── style.css                   # Custom styling
+
 │   ├── script.js                   # Frontend logic
+
 │   └── hero.jpg                    # Hero background image
+
+
 │
+
 ├── cattle_class.ipynb              # Model training notebook
+
+
 └── README.md
+
 
 
 🧪 Model Training Details
