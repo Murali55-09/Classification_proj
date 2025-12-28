@@ -64,19 +64,13 @@ Tools
 
 
 
-classification_proj/
-    ├── app.py
-    ├── cattle_breed_model.keras
-    ├── class_indices.json
-    ├── requirements.txt
-    ├── templates/
-    │   └── index.html
-    ├── static/
-    │   ├── style.css
-    │   ├── script.js
-    │   └── hero.jpg
-    ├── cattle_class.ipynb
-    └── README.md
+## 🔄 Application Workflow
+
+<img src="images/workflow.png" width="700"/>
+
+This diagram illustrates the end-to-end workflow of the application, from image upload 
+to final cattle breed prediction.
+
 
 
 
@@ -174,4 +168,17 @@ Web Application Workflow
     
     Integrated ML models into web applications
 
+
+## 🖥️ Web Application Output
+
+### Home Page
+<img src="images/homepage.png" width="700"/>
+
+
+
+
+### Prediction Result
+<img src="images/uploadpage.png" width="700"/>
+
+The application displays the predicted cattle breed along with confidence score.
 
