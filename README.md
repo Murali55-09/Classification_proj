@@ -70,18 +70,18 @@ Tools
 
 
 classification_proj/
-├── app.py
-├── cattle_breed_model.keras
-├── class_indices.json
-├── requirements.txt
-├── templates/
-│   └── index.html
-├── static/
-│   ├── style.css
-│   ├── script.js
-│   └── hero.jpg
-├── cattle_class.ipynb
-└── README.md
+    ├── app.py
+    ├── cattle_breed_model.keras
+    ├── class_indices.json
+    ├── requirements.txt
+    ├── templates/
+    │   └── index.html
+    ├── static/
+    │   ├── style.css
+    │   ├── script.js
+    │   └── hero.jpg
+    ├── cattle_class.ipynb
+    └── README.md
 
 
 
