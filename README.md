@@ -66,13 +66,13 @@ Tools
 
 ## 🔄 Application Workflow
 
-<img src="images/workflow.png" width="700"/>
+<img src="images/workflow.png" width="600" heigth="600/>
 
 This diagram illustrates the end-to-end workflow of the application, from image upload 
 to final cattle breed prediction.
 
 ## Architecture Diagram
-<img src="images/architecture.png" width='600' height="600">
+<img src="images/architecture.png" width='600' height="600"/>
 
 
 
