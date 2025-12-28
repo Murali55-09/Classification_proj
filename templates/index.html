@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CattleAI – Breed Classification</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-success" href="#">🐄 CattleAI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Classify</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Breeds</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center">
+    <div class="overlay"></div>
+    <div class="container text-white position-relative">
+        <div class="row">
+            <div class="col-md-7">
+                <span class="badge bg-success mb-3">AI-Powered Classification</span>
+                <h1 class="display-4 fw-bold mt-3">
+                    Identify Cattle<br>Breeds Instantly
+                </h1>
+                <p class="lead mt-3">
+                    Upload a photo of any cattle and our AI will identify the breed
+                    with confidence scores.
+                </p>
+                <button class="btn btn-success btn-lg mt-4" onclick="scrollToClassifier()">
+                    Start Classifying →
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Classification Section -->
+<section id="classifier" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Classify Your Cattle</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <input type="file" id="imageInput" class="form-control mb-3" accept="image/*">
+                    <button class="btn btn-success w-100" onclick="predict()">Predict Breed</button>
+
+                    <div class="mt-4 text-center">
+                        <h5 id="result" class="text-success"></h5>
+                        <p id="confidence" class="fw-bold"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+function scrollToClassifier() {
+    document.getElementById("classifier").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>

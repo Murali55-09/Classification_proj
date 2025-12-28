@@ -1,0 +1,30 @@
+body {
+    padding-top: 70px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-section {
+    height: 90vh;
+    background: url("/static/hero.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.35)
+    );
+}
+
+.hero-section h1 {
+    line-height: 1.2;
+}
+
+.card {
+    border-radius: 15px;
+}
