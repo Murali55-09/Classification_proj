@@ -5,3 +5,4 @@ Cattle Breeds/
 cow_breed_cnn.h5
 __pycache__/
 .ipynb_checkpoints/
+cattle_breed_model.keras
