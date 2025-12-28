@@ -71,7 +71,8 @@ Tools
 This diagram illustrates the end-to-end workflow of the application, from image upload 
 to final cattle breed prediction.
 
-
+## Architecture Diagram
+<img src="images/architecture.png" width='600' height="600">
 
 
 
