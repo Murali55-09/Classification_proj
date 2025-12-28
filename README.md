@@ -70,38 +70,19 @@ Tools
 
 
 classification_proj/
-│
-
-├── app.py                          # Flask backend
-
-├── cattle_breed_model.keras        # Trained CNN model
-
-├── class_indices.json              # Class label mapping
-
+├── app.py
+├── cattle_breed_model.keras
+├── class_indices.json
 ├── requirements.txt
-
-│
 ├── templates/
-
-│   └── index.html                  # Frontend HTML
-
-│
-
+│   └── index.html
 ├── static/
-
-│   ├── style.css                   # Custom styling
-
-│   ├── script.js                   # Frontend logic
-
-│   └── hero.jpg                    # Hero background image
-
-
-│
-
-├── cattle_class.ipynb              # Model training notebook
-
-
+│   ├── style.css
+│   ├── script.js
+│   └── hero.jpg
+├── cattle_class.ipynb
 └── README.md
+
 
 
 
