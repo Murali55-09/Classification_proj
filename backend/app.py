@@ -5,7 +5,7 @@ from PIL import Image
 import json
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="frontend/templates")
 
 # Load model
 model = tf.keras.models.load_model("cattle_breed_model.keras")
@@ -21,6 +21,8 @@ def preprocess_image(image):
     image = np.array(image) / 255.0
     image = np.expand_dims(image, axis=0)
     return image
+
+
 
 @app.route("/")
 def home():
