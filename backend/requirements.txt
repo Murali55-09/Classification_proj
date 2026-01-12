@@ -1,8 +1,10 @@
-tensorflow==2.15.0
+tensorflow==2.11.0
 flask
 numpy
 pillow
 scipy
 matplotlib
 scikit-learn
+gunicorn
+
 
