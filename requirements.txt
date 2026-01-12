@@ -1,8 +1,8 @@
-tensorflow
+tensorflow==2.15.0
 flask
 numpy
 pillow
 scipy
 matplotlib
 scikit-learn
-gunicorn
+

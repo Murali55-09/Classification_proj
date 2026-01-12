@@ -18,7 +18,7 @@ app = Flask(
 )
 
 # 🔹 Load model safely
-model_path = os.path.join(BASE_DIR, "model","cattle_breed_model.keras")
+model_path = os.path.join(BASE_DIR, "cattle_breed_model.keras")
 model = tf.keras.models.load_model(model_path)  
 
 # Load class labels
