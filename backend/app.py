@@ -20,37 +20,47 @@ app = Flask(
 CORS(app)
 
 # 🔹 Global variables for lazy loading
-model = None
+interpreter = None
+input_details = None
+output_details = None
 class_indices = None
 labels = None
 
 def load_model_lazy():
-    """Load model only when first needed to save memory"""
-    global model, class_indices, labels
+    """Load TFLite model only when first needed to save memory"""
+    global interpreter, input_details, output_details, class_indices, labels
     
-    if model is None:
-        print("🔄 Loading model for the first time...")
+    if interpreter is None:
+        print("🔄 Loading TFLite model for the first time...")
         try:
             import tensorflow as tf
-            model_path = os.path.join(BASE_DIR, "cattle_breed_model.keras")
-            model = tf.keras.models.load_model(model_path)
+            
+            # Load TFLite model
+            model_path = os.path.join(BASE_DIR, "cattle_breed_model.tflite")
+            interpreter = tf.lite.Interpreter(model_path=model_path)
+            interpreter.allocate_tensors()
+            
+            # Get input and output tensors
+            input_details = interpreter.get_input_details()
+            output_details = interpreter.get_output_details()
             
             # Load class labels
             with open(os.path.join(BASE_DIR, "class_indices.json"), "r") as f:
                 class_indices = json.load(f)
             
             labels = {v: k for k, v in class_indices.items()}
-            print("✅ Model loaded successfully!")
+            print("✅ TFLite model loaded successfully!")
+            
         except Exception as e:
             print(f"❌ Error loading model: {str(e)}")
             raise e
     
-    return model, labels
+    return interpreter, input_details, output_details, labels
 
 def preprocess_image(image):
     """Preprocess image for model prediction"""
     image = image.resize((224, 224))
-    image = np.array(image) / 255.0
+    image = np.array(image, dtype=np.float32) / 255.0
     image = np.expand_dims(image, axis=0)
     return image
 
@@ -62,7 +72,7 @@ def home():
 @app.route("/health")
 def health():
     """Health check endpoint"""
-    return jsonify({"status": "healthy", "service": "cattle-breed-classifier"})
+    return jsonify({"status": "healthy", "service": "cattle-breed-classifier-lite"})
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -78,17 +88,24 @@ def predict():
         if file.filename == "":
             return jsonify({"error": "Empty file uploaded"}), 400
 
-        # Load model lazily (only when first prediction is made)
-        model, labels = load_model_lazy()
+        # Load model lazily
+        interpreter, input_details, output_details, labels = load_model_lazy()
 
         # Open and preprocess image
         image = Image.open(file).convert("RGB")
         img = preprocess_image(image)
         
-        # Make prediction
-        prediction = model.predict(img, verbose=0)
-        predicted_class = np.argmax(prediction)
-        confidence = float(np.max(prediction)) * 100
+        # Set input tensor
+        interpreter.set_tensor(input_details[0]['index'], img)
+        
+        # Run inference
+        interpreter.invoke()
+        
+        # Get output tensor
+        prediction = interpreter.get_tensor(output_details[0]['index'])
+        
+        predicted_class = np.argmax(prediction[0])
+        confidence = float(np.max(prediction[0])) * 100
 
         return jsonify({
             "breed": labels[predicted_class],
@@ -101,5 +118,5 @@ def predict():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    print(f"🚀 Starting Flask app on port {port}")
+    print(f"🚀 Starting Flask app with TFLite on port {port}")
     app.run(host='0.0.0.0', port=port, debug=False)
