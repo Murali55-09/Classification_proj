@@ -1,8 +1,10 @@
 services:
   - type: web
-    name: cattle-breed-app
+    name: cattle-breed-classifier
     env: python
-    plan: free
+    region: oregon
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn backend.app:app --timeout 120
-    pythonVersion: 3.10.13
+    startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.11
