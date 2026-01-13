@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: cattle-breed-app
-    env: python
-    plan: free
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn backend.app:app --timeout 120
-    pythonVersion: 3.10.13

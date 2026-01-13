@@ -1,10 +1,7 @@
-tensorflow==2.11.0
-flask
-numpy
-pillow
-scipy
-matplotlib
-scikit-learn
-gunicorn
-
+tensorflow==2.20.0
+Flask==3.0.0
+Flask-CORS==4.0.0
+Pillow==10.4.0
+numpy==1.26.4
+gunicorn==21.2.0
 
