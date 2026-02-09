@@ -28,3 +28,23 @@ body {
 .card {
     border-radius: 15px;
 }
+
+.alert-info {
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.bg-light-warning {
+    background-color: #fffde7;
+    border-left: 4px solid #fbc02d;
+}
+
+.modal-content {
+    border-radius: 20px;
+}
+
+.modal-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
