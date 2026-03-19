@@ -107,16 +107,10 @@ def predict():
         predicted_class = np.argmax(prediction[0])
         confidence = float(np.max(prediction[0])) * 100
 
-        if confidence < 70:
-            return jsonify({
-                "result": "It's not a cattle",
-                "confidence": round(confidence, 2)
-            })
-        else:
-            return jsonify({
-                "breed": labels[predicted_class],
-                "confidence": round(confidence, 2)
-            })
+        return jsonify({
+            "breed": labels[predicted_class],
+            "confidence": round(confidence, 2)
+        })
 
     except Exception as e:
         print(f"❌ Prediction error: {str(e)}")
