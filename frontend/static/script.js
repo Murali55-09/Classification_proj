@@ -23,3 +23,9 @@ function predict() {
     })
     .catch(() => alert("Prediction failed"));
 }
+
+// Show instructions modal on load
+window.addEventListener('DOMContentLoaded', () => {
+    const instructionsModal = new bootstrap.Modal(document.getElementById('instructionsModal'));
+    instructionsModal.show();
+});

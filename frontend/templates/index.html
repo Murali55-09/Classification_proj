@@ -59,6 +59,9 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow p-4">
+                    <div class="alert alert-info py-2" role="alert">
+                        <small>ℹ️ <strong>Note:</strong> Please upload <strong>only cattle pictures</strong> for the most accurate results.</small>
+                    </div>
                     <input type="file" id="imageInput" class="form-control mb-3" accept="image/*">
                     <button class="btn btn-success w-100" onclick="predict()">Predict Breed</button>
 
@@ -71,6 +74,33 @@
         </div>
     </div>
 </section>
+
+<!-- Instructions Modal -->
+<div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title fw-bold" id="instructionsModalLabel">Welcome to CattleAI! 🐄</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <h6 class="fw-bold mb-3">How to Use:</h6>
+        <ol class="mb-4">
+          <li>Click the <strong>"Start Classifying"</strong> button or scroll to the classifier.</li>
+          <li>Choose a clear image of a cattle from your device.</li>
+          <li>Click <strong>"Predict Breed"</strong> to see the results instantly.</li>
+        </ol>
+        
+        <div class="alert alert-warning border-0 bg-light-warning">
+          <p class="mb-0">⚠️ <strong>Important:</strong> To ensure high accuracy, please upload <strong>only cattle pictures</strong>. Non-cattle images may result in incorrect predictions.</p>
+        </div>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-success w-100 py-2" data-bs-dismiss="modal">Got it, Let's Start!</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
