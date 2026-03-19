@@ -15,11 +15,18 @@ function predict() {
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById("result").innerText =
-            "Predicted Breed: " + data.breed;
+        const resultElement = document.getElementById("result");
+        const confidenceElement = document.getElementById("confidence");
 
-        document.getElementById("confidence").innerText =
-            "Confidence: " + data.confidence.toFixed(2) + "%";
+        if (data.confidence < 70) {
+            resultElement.innerText = "Unavailable to predict, please provide clear image";
+            resultElement.classList.replace("text-success", "text-danger");
+            confidenceElement.innerText = "";
+        } else {
+            resultElement.innerText = "Predicted Breed: " + data.breed;
+            resultElement.classList.replace("text-danger", "text-success");
+            confidenceElement.innerText = "Confidence: " + data.confidence.toFixed(2) + "%";
+        }
     })
     .catch(() => alert("Prediction failed"));
 }
